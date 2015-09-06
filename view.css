@@ -1,0 +1,40 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "Lucida Sans", sans-serif;
+}
+
+header {
+	background: #7cfc00;
+	padding: 15px;
+	//color: #000000;
+	//text-indent: 25px;
+}
+
+table {
+	margin-top: 10px;
+	margin: auto;
+    width: 100%;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	color: black;
+}
+
+th, td {
+	padding: 2px;
+	text-align: center;
+}
+
+span.coment {
+	color: blue;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}

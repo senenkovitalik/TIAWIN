@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>TIAWIN</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Web site about Kyiv">
+	<meta name="keywords" content="Ukraine, Kyiv">
+	<meta name="author" content="Senenko Vitaliy">
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="images/icon.png">
+	<link rel="stylesheet" type="text/css" href="../view.css">
+
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script src="../js/scroll_up.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+
+<div id="top" class="page-header">
+    <h1 style="text-align: center;">That Is All What I Need</h1>      
+</div>
+
+<nav class="navbar navbar-default">
+  	<div class="container-fluid">
+    	<div class="navbar-header">
+      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+      	</button>
+      	<a class="navbar-brand" href="#">TIAWIN</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      	<ul class="nav navbar-nav">
+        	<li><a href="../index.html">Home</a></li>
+        	<li><a href="#">WEB</a></li>
+        	<li class="active"><a href="../cisco/cisco.html">CISCO</a></li>
+        	<li><a href="../mikrotik/mikrotik.html">MikroTik</a></li>
+          <li><a href="#">Музика</a></li>
+        	<li><a href="../other/other.html">Other</a></li>
+      	</ul>
+      	<!--<ul class="nav navbar-nav navbar-right">
+        	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      	</ul>-->
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="jumbotron">
+    <h2>Cisco MikroTik IPsec Dynamic VPN</h2>
+    <p>
+      <img src="../images/vpn.jpg" class="img-responsive img-rounded" alt="SSH logo" width="225" height="225" style="float: right; margin-left: 15px;">
+      <p>Недавно виникла задача побудувати VPN між Cisco 2911 та MikroTik RB2811. Cisco мала "білий ip", а MikroTik отримував адресу динамічно від супутникового терміналу. Супутниковий термінал видавав "білий ір", але після перезавантаження терміналу адрес змінювався, тому вирішено було використати динамічний VPN. Також необхідно було забезпечити доступ в Інтернет з LAN. І ще до всього цього треба було зарезервувати канали Інтернет - на перший порт маршрутизатора приходить Інтернет з супутника, на другий порт - наприклад, DSL зі статичною адресою.</p>
+    </p>
+  </div>
+
+  <div class="well">
+  
+    <p>Процес підключення до MikroTik'а описано <a href="#">тут</a>.</p>
+    <p>1. Інформація про інтерфейси.</p>
+    <img src="../images/cisco_mikrotik_vpn/1_interfaces.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>2. Для зручності змінюємо назви інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/1_interfaces_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>3. 1 порт - приймаємо Інтернет по DHCP, 2 порт - по статиці.</p>
+    <img src="../images/cisco_mikrotik_vpn/1_interfaces_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>4. Створюємо <b>bridge</b> - віртуальний комутатор.</p>
+    <img src="../images/cisco_mikrotik_vpn/2_bridge_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>5. Перший для роздачі Інтернету, другий - роздача шифрованого трафіку з VPN.</p>
+    <img src="../images/cisco_mikrotik_vpn/2_bridge_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>6. Кожен порт по черзі присвоюємо до відповідного інтерфейсу.</p>
+    <img src="../images/cisco_mikrotik_vpn/2_bridge_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>7. Який порт до якого <b>bridge</b> відноситься.</p>
+    <img src="../images/cisco_mikrotik_vpn/2_bridge_4.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>8. Присвоюємо ІР-адреси інтерфейсам.</p>
+    <img src="../images/cisco_mikrotik_vpn/3_addresses_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>9. Пишемо ІР-адрес і вибираємо відповідний інтерфейс.</p>
+    <img src="../images/cisco_mikrotik_vpn/3_addresses_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>10. На якому інтерфейсі яка адреса.</p>
+    <img src="../images/cisco_mikrotik_vpn/3_addresses_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>11. Налаштовуємо DHCP клієнт (берем Інтерент з супутникового терміналу).</p>
+    <img src="../images/cisco_mikrotik_vpn/4_dhcp_client_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>12. Конфігурація клієнта. Обовязково вказуємо <b>Default Route Distance:</b> 2 (необхідно буде для резервування каналів)</p>
+    <img src="../images/cisco_mikrotik_vpn/4_dhcp_client_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>13. Створено клієнта. Поле <b>Status</b> показує що триває отримання адреси.</p>
+    <img src="../images/cisco_mikrotik_vpn/4_dhcp_client_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>14. Успішно отримали адресу по DHCP.</p>
+    <img src="../images/cisco_mikrotik_vpn/4_dhcp_client_4.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>15. Налаштовуємо DHCP сервер. Це нам необхідно для динамічної роздачі адрес користувачам Інтернет.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>16. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>17. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>18. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_4.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>19. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_5.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>20. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_6.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>21. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_dhcp_server_7.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>22. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_DNS_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>23. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/5_DNS_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>24. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/6_NAT_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>25. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/6_NAT_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>26. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/6_NAT_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>27. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/6_NAT_4.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>28. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/6_NAT_5.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>29. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/7_routes_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>30. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/7_routes_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>31. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/7_routes_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>32. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/8_ipsec.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>33. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/9_policies_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>34. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/9_policies_2.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>35. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/10_peers.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>36. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/11_proposals.png" alt="" style="width: ; height: ;"><br><br>
+
+    
+
+    <p>40. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/13_sheduler_1.png" alt="" style="width: ; height: ;"><br><br>
+
+    <p>41. Конфігурація інтерфейсів.</p>
+    <img src="../images/cisco_mikrotik_vpn/13_sheduler_2.png" alt="" style="width: ; height: ;"><br><br>
+
+<!-- CISCO -->
+    <p>9. Переходимо до Cisco.</p>
+    <span class="coment">!--- ключ для мікротіка</span><br>
+    crypto isakmp key 12345 address 0.0.0.0<br><br>
+
+    <span class="coment">!--- ACL</span><br>
+    ip access-list extended VPN-TRAFFIC<br>
+    &nbsp; permit ip 172.16.0.0 0.0.255.255 172.31.9.0 0.0.0.255<br><br>
+
+    <span class="coment">!--- політика першої фази</span><br>
+    crypto isakmp policy 10<br>
+    &nbsp; encr des<br>
+    &nbsp; hash md5<br>
+    &nbsp; authentication pre-share<br>
+    &nbsp; group 2<br><br>
+
+    <span class="coment">!--- політика другої фази</span><br>
+    crypto ipsec transform-set ESP-DES-MD5 esp-des esp-md5-hmac<br>
+    &nbsp; mode tunel<br><br>
+
+    <span class="coment">!--- динамічна криптокарта</span><br> 
+    crypto dynamic-map dyn-map 20<br>
+    &nbsp; set transform-set ESP-DES-MD5 <br>
+    &nbsp; match address VPN-TRAFFIC<br>
+    &nbsp; reverse-route<br><br>
+
+    <span class="coment">!--- зв'язуємо динамічну карту зі статичою</span><br>
+    crypto map STAT-MAP 100 ipsec-isakmp dynamic DYN-MAP <br><br>
+
+    <span class="coment">!--- застосовуємо її на інтерфейс</span><br> 
+    interface gi0/0<br>
+    &nbsp; crypto map STAT-MAP<br><br>
+
+    <p>8. VPN підніметься тільки за наявності трафіку.</p>
+    <img src="../images/cisco_mikrotik_vpn/12_installed_sas_1.png" alt="" style="width: ; height: ;"><br><br>
+    <img src="../images/cisco_mikrotik_vpn/12_installed_sas_2.png" alt="" style="width: ; height: ;"><br><br>
+    <img src="../images/cisco_mikrotik_vpn/12_installed_sas_3.png" alt="" style="width: ; height: ;"><br><br>
+
+    <!-- Кнопка нагору -->
+    <br>
+    <button id="back-top" type="button" class="btn btn-primary" style="margin-top: 12px;">Up <span class="glyphicon glyphicon-arrow-up"></span></button>
+
+  </div>
+
+  <ul class="nav nav-pills nav-stacked">
+    <li><a href="../cisco/ssh.html">Cisco+SSH</a></li>
+    <li class="active"><a href="../cisco/cisco_mikrotik_ipsec_dynamic_vpn.html">Cisco+MikroTik+IPsec_Dynamic_VPN</a></li>
+  </ul>
+
+</section>
+
+<div class="well well-sm">
+	<p style="text-align: center;">Senenko Vitalik Org. Kyiv. 2015.</p>
+<div>
+
+</div>
+</body>
+</html>
