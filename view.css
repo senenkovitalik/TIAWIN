@@ -6,13 +6,6 @@ html {
 	font-family: "Lucida Sans", sans-serif;
 }
 
-header {
-	background: #7cfc00;
-	padding: 15px;
-	//color: #000000;
-	//text-indent: 25px;
-}
-
 table {
 	margin-top: 10px;
 	margin: auto;
@@ -37,4 +30,11 @@ span.coment {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+.code {
+	background-color: black; 
+	color: white; 
+	padding: 15px;
+	font-family : "Courier New", "Nimbus Mono L", Monospace;
 }
