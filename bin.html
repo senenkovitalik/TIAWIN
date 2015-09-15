@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Переведення чисел</title>
+  <meta charset="utf-8">
+</head>
+<body>
+	<h1>Переведення числа з 10-ої системи числення в 2-ву</h1>
+  <form>
+    <p>Введіть число яке треба перевести</p>
+    <input id="dec" maxlength="12">
+    <input type="button" value="Перевести" onclick="decToBin()">
+    <p id="bin"></p>
+
+    <script>
+      function decToBin() {
+        var mod, bin = 0;
+        var binary = [];
+        var output = "";
+        var i = 1;
+
+        var dec = document.getElementById("dec").value;
+        do {
+          mod = dec % 2;
+          binary.push(mod);
+          dec = Math.floor(dec/2);
+        }
+        while (dec >= 2);
+        binary.push(1);
+        binary.reverse();
+
+        var i = 1;
+        var offset = binary.length % 4;
+        var index = 0;
+
+        for (index; index < binary.length; index++) {
+          if (offset == 0) {
+            output += " ";  
+            i = 0;  
+          }
+          offset--;
+
+          if (i == 4) {
+            output += " ";
+            i = 0;
+          }
+
+          i++;
+          output += binary[index];
+        }
+
+        document.getElementById("bin").innerHTML = document.getElementById("dec").value + "<sub>(10)</sub> = " + output + "<sub>(2)</sub>"; 
+      }
+    </script>
+  </form>
+</body>
+</html>
